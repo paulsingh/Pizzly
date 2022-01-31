@@ -16,7 +16,7 @@
     "headers": {
       "Accept": "application/json",
       "Authorization": "Bearer ${auth.accessToken}",
-      "User-Agent": "Pizzly"
+      "User-Agent": "North Star / northstarkpis.com"
     }
   }
 }
