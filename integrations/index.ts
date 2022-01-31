@@ -1,5 +1,6 @@
 import './adobe-sign.json'
 import './asana.json'
+import './amazon-seller-central.json'
 import './basecamp.json'
 import './bitbucket.json'
 import './coinbase.json'
