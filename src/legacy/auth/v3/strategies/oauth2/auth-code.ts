@@ -18,7 +18,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
   // in spapi_oauth_code instead.
   const code = req.query.spapi_oauth_code || req.query.code
   
-  const { spapi_oauth_code, code, error } = req.query
+  const { error } = req.query
   
   const {
     authorizationURL,
