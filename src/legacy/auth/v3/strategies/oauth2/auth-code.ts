@@ -35,6 +35,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
   }
 
   if (code) {
+      console.log("Inside the 'if' statement... 'code' must be returning TRUE.")
     const tokenResult = await getTokenWithCode({
       authorizationMethod,
       bodyFormat,
