@@ -13,13 +13,11 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     scopes = []
   } = req.setupDetails
   
-  const { error } = req.query
-  
   // Amazon Seller Central's implementation of Oauth2 doesn't 
   // follow the spec  and returns the authorization `code` 
   // in spapi_oauth_code instead.
-  const code = req.query.spapi_oauth_code || req.query.code
-  console.log("code", code)
+  const { spapi_oauth_code, code, error } = req.query
+  
   const {
     authorizationURL,
     authorizationMethod,
@@ -35,7 +33,31 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
   }
 
   if (code) {
-      console.log("Inside the 'if' statement... 'code' must be returning TRUE.")
+    const tokenResult = await getTokenWithCode({
+      authorizationMethod,
+      bodyFormat,
+      clientId,
+      clientSecret,
+      code,
+      tokenParams,
+      tokenURL,
+      callbackURL
+    })
+
+    //console.log('tokenResult', tokenResult)
+    req.credentials = responseToCredentials(tokenResult)
+    //console.log('credentials', req.credentials)
+    //console.log('decodedToken', tokenResult.decodedResponse)
+    req.tokenResponse = tokenResult.decodedResponse
+
+    return next()
+  }
+  
+  // Amazon Seller Central's implementation of Oauth2 doesn't 
+  // follow the spec  and returns the authorization `code` 
+  // in spapi_oauth_code instead.
+  if (spapi_oauth_code) {
+      console.log('tokenParams', tokenParams)
     const tokenResult = await getTokenWithCode({
       authorizationMethod,
       bodyFormat,
