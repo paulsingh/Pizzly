@@ -12,8 +12,14 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     credentials: { clientId, clientSecret },
     scopes = []
   } = req.setupDetails
-  console.log("req.query: ", req.query)
-  const { code, error } = req.query
+  
+  const { error } = req.query
+  
+  // Amazon Seller Central's implementation of Oauth2 doesn't 
+  // follow the spec  and returns the authorization `code` 
+  // in spapi_oauth_code instead.
+  const code = req.query.spapi_oauth_code || req.query.code
+  
   const {
     authorizationURL,
     authorizationMethod,
