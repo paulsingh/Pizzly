@@ -18,7 +18,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
   // in spapi_oauth_code instead. This is, also, the only
   // time Amazon sends us the `selling_partner_id`
   const code = req.query.spapi_oauth_code || req.query.code  
-  const { selling_partner_id, error } = req.query
+  const { error } = req.query
   
   const {
     authorizationURL,
@@ -51,13 +51,6 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     //console.log('credentials', req.credentials)
     //console.log('decodedToken', tokenResult.decodedResponse)
     req.tokenResponse = tokenResult.decodedResponse
-    
-    if (selling_partner_id) {
-       req.tokenResponse.body = { ...req.tokenResponse.body, ...{ 'selling_partner_id':selling_partner_id }}
-    }
-    
-    console.log('req.tokenResponse', req.tokenResponse)
-    console.log('selling_partner_id', selling_partner_id)
 
     return next()
   }
