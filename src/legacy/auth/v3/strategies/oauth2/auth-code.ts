@@ -51,7 +51,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     //console.log('credentials', req.credentials)
     //console.log('decodedToken', tokenResult.decodedResponse)
     req.tokenResponse = tokenResult.decodedResponse
-    console.log('tokenResponse', tokenResponse)
+    console.log('req.tokenResponse', req.tokenResponse)
     console.log('selling_partner_id', selling_partner_id)
 
     return next()
