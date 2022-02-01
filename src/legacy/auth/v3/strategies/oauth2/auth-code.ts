@@ -19,7 +19,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
   // follow the spec  and returns the authorization `code` 
   // in spapi_oauth_code instead.
   const code = req.query.spapi_oauth_code || req.query.code
-  
+  console.log("code", code)
   const {
     authorizationURL,
     authorizationMethod,
