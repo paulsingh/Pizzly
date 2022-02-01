@@ -12,6 +12,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
     credentials: { clientId, clientSecret },
     scopes = []
   } = req.setupDetails
+  console.log("req.query: ", req.query)
   const { code, error } = req.query
   const {
     authorizationURL,
