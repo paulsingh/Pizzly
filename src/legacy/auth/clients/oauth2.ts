@@ -155,6 +155,7 @@ export const getCodeRedirectURL = (params: RedirectParams) => {
 }
 
 export const getTokenWithCode = async (params: CodeParams) => {
+    console.log('params', params)
   const { callbackURL, code, tokenParams } = params
   const client = createClientForToken(params)
 
