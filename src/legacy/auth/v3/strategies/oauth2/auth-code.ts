@@ -63,7 +63,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
       clientId,
       clientSecret,
       code,
-      { grant_type: 'authorization_code' },
+      grant_type: 'authorization_code',
       tokenURL,
       callbackURL
     })
