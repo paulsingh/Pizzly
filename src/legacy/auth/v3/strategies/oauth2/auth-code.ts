@@ -57,14 +57,13 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
   // follow the spec  and returns the authorization `code` 
   // in spapi_oauth_code instead.
   if (spapi_oauth_code) {
-      console.log('tokenParams', tokenParams)
     const tokenResult = await getTokenWithCode({
       authorizationMethod,
       bodyFormat,
       clientId,
       clientSecret,
       code,
-      tokenParams,
+      { grant_type: 'authorization_code' },
       tokenURL,
       callbackURL
     })
