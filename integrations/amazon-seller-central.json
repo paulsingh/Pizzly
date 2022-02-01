@@ -10,7 +10,7 @@
       "version": "beta"
     },
     "tokenParams": { 
-      "grant_type": "refresh_token" 
+      "grant_type": "authorization_code"
     },
   },
   "request": {

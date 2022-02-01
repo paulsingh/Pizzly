@@ -63,7 +63,7 @@ export const authenticate = asyncMiddleware(async (req: TAuthenticateRequest, re
       clientId,
       clientSecret,
       spapi_oauth_code,
-      'authorization_code',
+      tokenParams,
       tokenURL,
       callbackURL
     })
