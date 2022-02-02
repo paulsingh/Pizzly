@@ -14,7 +14,7 @@
     },
   },
   "request": {
-    "baseURL": "https://sellingpartnerapi-na.amazon.com",
+    "baseURL": "https://${connectParams.aws_region_host}",
     "headers": {
       "Accept": "application/json",
       "Authorization": "Bearer ${auth.accessToken}",
