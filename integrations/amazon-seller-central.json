@@ -14,7 +14,7 @@
     },
   },
   "request": {
-    "baseURL": "https://${connectParams.aws_region_host}",
+    "baseURL": "https://${auth.connectParams.aws_region_host}",
     "headers": {
       "Accept": "application/json",
       "Authorization": "Bearer ${auth.accessToken}",
