@@ -2,7 +2,7 @@
   "name": "Amazon Seller Central",
   "image": "https://northstarkpis.com/images/logos/amazon.svg",
   "auth": {
-    "authorizationURL": "${connectParams.sellercentralURL}/apps/authorize/consent",
+    "authorizationURL": "https://${connectParams.sellercentralHost}/apps/authorize/consent",
     "tokenURL": "https://api.amazon.com/auth/o2/token",
     "authType": "OAUTH2",
     "authorizationParams": {
