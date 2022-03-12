@@ -6,8 +6,7 @@
     "tokenURL": "https://api.amazon.com/auth/o2/token",
     "authType": "OAUTH2",
     "authorizationParams": {
-      "application_id": "amzn1.sp.solution.a4e61247-0c15-40cb-bb2d-0c6b5855e0f6",
-      "version": "beta"
+      "application_id": "amzn1.sp.solution.5e77402a-cdaf-49ef-ae1d-38b82ff75236"
     },
     "tokenParams": { 
       "grant_type": "authorization_code"
