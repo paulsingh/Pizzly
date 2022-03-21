@@ -12,7 +12,7 @@
     }
   },
   "request": {
-    "baseURL": "https://www.googleapis.com/analytics/v3/",
+    "baseURL": "https://${headers.ga_host}",
     "headers": {
       "Accept": "application/json",
       "Authorization": "Bearer ${auth.accessToken}",
